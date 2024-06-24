@@ -9,8 +9,18 @@ import SwiftUI
 
 
 struct DataView: View {
-    var entries: [Entry]
+    
     @State private var selectedEntry: Entry?
+    private let databaseManager = DatabaseManager()
+    var entries: [Entry]
+    
+    
+    /* External testing
+     var entries: [Entry]
+     @State private var selectedEntry: Entry?
+     private let databaseManager = DatabaseManager()
+     END HERE
+     */
 
     var body: some View {
         NavigationView {

@@ -51,16 +51,14 @@ struct DataEntryView: View {
     private func saveData() {
         if pairs.allSatisfy({ Double($0.value) != nil }) {
             let currentTimestamp = Date().formatted(date: .numeric, time: .shortened)
-            let newEntry = Entry(userName: userName, items: pairs, timestamp: currentTimestamp)
+            let newEntry = Entry(userName: userName, items: pairs, timestamp: currentTimestamp)  // 'id' is generated inside the initializer
             entries.append(newEntry)
-            // Optionally dismiss the view
             presentationMode.wrappedValue.dismiss()
         } else {
             alertMessage = "All values must be numerical to save."
             showAlert = true
         }
     }
-    
     private func ensureNumericValue(index: Int) {
         if let _ = Double(pairs[index].value) {
             // Valid numeric input, do nothing
